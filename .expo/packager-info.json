@@ -1,9 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 86151,
+  "expoServerNgrokUrl": "https://bw-bq4.yung-frodo.erflow.exp.direct",
+  "packagerNgrokUrl": "https://packager.bw-bq4.yung-frodo.erflow.exp.direct",
+  "ngrokPid": 86161,
+  "webpackServerPort": 19006
 }
