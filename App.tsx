@@ -8,15 +8,16 @@ enum ERFlowView {
 };
 
 enum LoggingButton {
-    TRIAGED = "triaged",
-    ROOMED = "roomed",
-    MDSEEN = "seen by MD",
-    MDDISCHARGED = "discharged by MD",
-    RNDISCHARGED = "discharged by RN",
-    ROOMCLEAN = "room cleaned",
+    TRIAGED = "Triaged",
+    ROOMED = "Roomed",
+    MDSEEN = "Seen by MD",
+    MDDISCHARGED = "Discharged by MD",
+    RNDISCHARGED = "Discharged by RN",
+    ROOMCLEAN = "Room cleaned",
 }
 
 export default function App() {
+
     const [textValue, onChangeText] = React.useState('');
     const [currView, onButtonPress] = React.useState(ERFlowView.MRN);
 
@@ -24,15 +25,21 @@ export default function App() {
       <View style={styles.container}>
           <Text>Enter MRN</Text>
           <TextInput
-              style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+              style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1}}
+              allowFontScaling={false}
               placeholder="Type here for MRN!"
+              maxLength={20}
               onChangeText={(newText) => onChangeText(newText)}
               value={textValue}
           />
           <Button
               title="Go!"
               onPress={() => {
-                onButtonPress(ERFlowView.LOGGING);
+                if (isNaN(textValue)) {
+                    Alert.alert("Error", "Please enter a valid MRN");
+                } else {
+                    onButtonPress(ERFlowView.LOGGING);
+                }
               }}
           />
       </View>;
@@ -42,48 +49,60 @@ export default function App() {
             <Button
                 title={LoggingButton.TRIAGED}
                 onPress={() => {
-                    logButtonPressed(LoggingButton.TRIAGED, textValue);
-                    Alert.alert('title', 'message');
+                    const message = '"' + LoggingButton.TRIAGED + '" action has been logged for MRN #' + textValue;
+                    const title = "Success"
+                    Alert.alert(title, message);
+                    onChangeText('');
                     onButtonPress(ERFlowView.MRN);
                 }}
             />
             <Button
                 title={LoggingButton.ROOMED}
                 onPress={() => {
-                    logButtonPressed(LoggingButton.ROOMED, textValue);
-                    Alert.alert('title', 'message');
+                    const message = '"' + LoggingButton.ROOMED + '" action has been logged for MRN #' + textValue;
+                    const title = "Success"
+                    Alert.alert(title, message);
+                    onChangeText('');
                     onButtonPress(ERFlowView.MRN);
                 }}
             />
             <Button
                 title={LoggingButton.MDSEEN}
                 onPress={() => {
-                    logButtonPressed(LoggingButton.MDSEEN, textValue);
-                    Alert.alert('title', 'message');
+                    const message = '"' + LoggingButton.MDSEEN + '" action has been logged for MRN #' + textValue;
+                    const title = "Success"
+                    Alert.alert(title, message);
+                    onChangeText('');
                     onButtonPress(ERFlowView.MRN);
                 }}
             />
             <Button
                 title={LoggingButton.MDDISCHARGED}
                 onPress={() => {
-                    logButtonPressed(LoggingButton.MDDISCHARGED, textValue);
-                    Alert.alert('title', 'message');
+                    const message = '"' + LoggingButton.MDDISCHARGED + '" action has been logged for MRN #' + textValue;
+                    const title = "Success"
+                    Alert.alert(title, message);
+                    onChangeText('');
                     onButtonPress(ERFlowView.MRN);
                 }}
             />
             <Button
                 title={LoggingButton.RNDISCHARGED}
                 onPress={() => {
-                    logButtonPressed(LoggingButton.RNDISCHARGED, textValue);
-                    Alert.alert('title', 'message');
+                    const message = '"' + LoggingButton.RNDISCHARGED + '" action has been logged for MRN #' + textValue;
+                    const title = "Success"
+                    Alert.alert(title, message);
+                    onChangeText('');
                     onButtonPress(ERFlowView.MRN);
                 }}
             />
             <Button
                 title={LoggingButton.ROOMCLEAN}
                 onPress={() => {
-                    logButtonPressed(LoggingButton.ROOMCLEAN, textValue);
-                    Alert.alert('title', 'message');
+                    const message = '"' + LoggingButton.ROOMCLEAN + '" action has been logged for MRN #' + textValue;
+                    const title = "Success"
+                    Alert.alert(title, message);
+                    onChangeText('');
                     onButtonPress(ERFlowView.MRN);
                 }}
             />
@@ -105,16 +124,12 @@ export default function App() {
     }
 }
 
-function logButtonPressed(loggingButton, mrn) {
-    // Console.log(loggingButton + "for MRN: " + mrn);
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#30e4f1',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: '5px',
+        paddingTop: 5,
     },
 });
