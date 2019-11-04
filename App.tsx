@@ -29,6 +29,7 @@ export default function App() {
               allowFontScaling={false}
               placeholder="Type here for MRN!"
               maxLength={20}
+              keyboardType="number-pad"
               onChangeText={(newText) => onChangeText(newText)}
               value={textValue}
           />
@@ -49,7 +50,9 @@ export default function App() {
             <Button
                 title={LoggingButton.TRIAGED}
                 onPress={() => {
-                    const message = '"' + LoggingButton.TRIAGED + '" action has been logged for MRN #' + textValue;
+                    const date = new Date();
+                    const message = '"' + LoggingButton.TRIAGED + '" action has been logged for MRN #' + textValue
+                        + "\n\nTimestamp: " + date;
                     const title = "Success"
                     Alert.alert(title, message);
                     onChangeText('');
@@ -59,7 +62,9 @@ export default function App() {
             <Button
                 title={LoggingButton.ROOMED}
                 onPress={() => {
-                    const message = '"' + LoggingButton.ROOMED + '" action has been logged for MRN #' + textValue;
+                    const date = new Date();
+                    const message = '"' + LoggingButton.ROOMED + '" action has been logged for MRN #' + textValue
+                        + "\n\nTimestamp: " + date;
                     const title = "Success"
                     Alert.alert(title, message);
                     onChangeText('');
@@ -69,7 +74,9 @@ export default function App() {
             <Button
                 title={LoggingButton.MDSEEN}
                 onPress={() => {
-                    const message = '"' + LoggingButton.MDSEEN + '" action has been logged for MRN #' + textValue;
+                    const date = new Date();
+                    const message = '"' + LoggingButton.MDSEEN + '" action has been logged for MRN #' + textValue
+                        + "\n\nTimestamp: " + date;
                     const title = "Success"
                     Alert.alert(title, message);
                     onChangeText('');
@@ -79,7 +86,9 @@ export default function App() {
             <Button
                 title={LoggingButton.MDDISCHARGED}
                 onPress={() => {
-                    const message = '"' + LoggingButton.MDDISCHARGED + '" action has been logged for MRN #' + textValue;
+                    const date = new Date();
+                    const message = '"' + LoggingButton.MDDISCHARGED + '" action has been logged for MRN #' + textValue
+                        + "\n\nTimestamp: " + date;
                     const title = "Success"
                     Alert.alert(title, message);
                     onChangeText('');
@@ -89,7 +98,9 @@ export default function App() {
             <Button
                 title={LoggingButton.RNDISCHARGED}
                 onPress={() => {
-                    const message = '"' + LoggingButton.RNDISCHARGED + '" action has been logged for MRN #' + textValue;
+                    const date = new Date();
+                    const message = '"' + LoggingButton.RNDISCHARGED + '" action has been logged for MRN #' + textValue
+                        + "\n\nTimestamp: " + date;
                     const title = "Success"
                     Alert.alert(title, message);
                     onChangeText('');
@@ -99,7 +110,9 @@ export default function App() {
             <Button
                 title={LoggingButton.ROOMCLEAN}
                 onPress={() => {
-                    const message = '"' + LoggingButton.ROOMCLEAN + '" action has been logged for MRN #' + textValue;
+                    const date = new Date();
+                    const message = '"' + LoggingButton.ROOMCLEAN + '" action has been logged for MRN #' + textValue
+                        + "\n\nTimestamp: " + date;
                     const title = "Success"
                     Alert.alert(title, message);
                     onChangeText('');
