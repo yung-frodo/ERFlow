@@ -1,11 +1,20 @@
 import React from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, Alert } from 'react-native';
 
 enum ERFlowView {
-    LOGIN = 0,
-    MRN = 1,
-    LOGGING = 2,
+    LOGIN = "login",
+    MRN = "mrn",
+    LOGGING = "logging",
 };
+
+enum LoggingButton {
+    TRIAGED = "triaged",
+    ROOMED = "roomed",
+    MDSEEN = "seen by MD",
+    MDDISCHARGED = "discharged by MD",
+    RNDISCHARGED = "discharged by RN",
+    ROOMCLEAN = "room cleaned",
+}
 
 export default function App() {
     const [textValue, onChangeText] = React.useState('');
@@ -28,6 +37,58 @@ export default function App() {
           />
       </View>;
 
+    const loggingView =
+        <View style={styles.container}>
+            <Button
+                title={LoggingButton.TRIAGED}
+                onPress={() => {
+                    logButtonPressed(LoggingButton.TRIAGED, textValue);
+                    Alert.alert('title', 'message');
+                    onButtonPress(ERFlowView.MRN);
+                }}
+            />
+            <Button
+                title={LoggingButton.ROOMED}
+                onPress={() => {
+                    logButtonPressed(LoggingButton.ROOMED, textValue);
+                    Alert.alert('title', 'message');
+                    onButtonPress(ERFlowView.MRN);
+                }}
+            />
+            <Button
+                title={LoggingButton.MDSEEN}
+                onPress={() => {
+                    logButtonPressed(LoggingButton.MDSEEN, textValue);
+                    Alert.alert('title', 'message');
+                    onButtonPress(ERFlowView.MRN);
+                }}
+            />
+            <Button
+                title={LoggingButton.MDDISCHARGED}
+                onPress={() => {
+                    logButtonPressed(LoggingButton.MDDISCHARGED, textValue);
+                    Alert.alert('title', 'message');
+                    onButtonPress(ERFlowView.MRN);
+                }}
+            />
+            <Button
+                title={LoggingButton.RNDISCHARGED}
+                onPress={() => {
+                    logButtonPressed(LoggingButton.RNDISCHARGED, textValue);
+                    Alert.alert('title', 'message');
+                    onButtonPress(ERFlowView.MRN);
+                }}
+            />
+            <Button
+                title={LoggingButton.ROOMCLEAN}
+                onPress={() => {
+                    logButtonPressed(LoggingButton.ROOMCLEAN, textValue);
+                    Alert.alert('title', 'message');
+                    onButtonPress(ERFlowView.MRN);
+                }}
+            />
+        </View>;
+
     const defaultView =
         <View style={styles.container}>
             <Text>{currView}</Text>
@@ -37,9 +98,15 @@ export default function App() {
     switch(currView) {
         case ERFlowView.MRN:
             return MRNview;
+        case ERFlowView.LOGGING:
+            return loggingView;
         default:
             return defaultView;
     }
+}
+
+function logButtonPressed(loggingButton, mrn) {
+    // Console.log(loggingButton + "for MRN: " + mrn);
 }
 
 const styles = StyleSheet.create({
@@ -48,5 +115,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#30e4f1',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingTop: '5px',
     },
 });
